@@ -1,15 +1,14 @@
 #include <stdio.h>
-
 /**
- * main - Prints a text
+ * main - main function
  *
- * Return: Always 1 (Success)
+ * Return: end program
  */
 int main(void)
 {
 	char n[] = "and that piece of art is useful\" - Dora korpar, 2015-10-19";
 
-	fprintf(stderr, "%\n", n);
+	fprintf(stderr, "%s\n", n);
 
 	return (1);
 }
