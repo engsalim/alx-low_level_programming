@@ -29,9 +29,9 @@ int main(void)
 
 	for (count =93; count < 99; count++)
 	{
-		half1 = fb1_half1 _ fb2_half1;
+		half1 = fb1_half1 + fb2_half1;
 		half2 = fb1_half2 + fb2_half2;
-		if (fb1_half2 + fb2_alf2 > 9999999999)
+		if (fb1_half2 + fb2_half2 > 9999999999)
 		{
 			half1 += 1;
 			half2 %= 10000000000;
@@ -39,9 +39,9 @@ int main(void)
 
 		printf("%lu%lu", half1, half2);
 		if (count != 98)
-			printf(", ")'
+			printf(", ");
 
-				fb1_half1 = fb2_half1;
+		fb1_half1 = fb2_half1;
 		fb1_half2 = fb2_half2;
 		fb2_half1 = half1;
 		fb2_half2 = half2;
