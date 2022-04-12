@@ -3,7 +3,7 @@
 /**
  * print_aphavet - a function that prints the alphabet,
  * in lowercase, followed b a new line
- * 
+ *
  * Return: zero (Success)
  */
 
