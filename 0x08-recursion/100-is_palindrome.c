@@ -1,39 +1,29 @@
 #include "main.h"
 
 /**
- * _myStrlen - gets string length
- * @p: string to be counted
- * Return: returns string length
+ * wildcmp - compares two strings and returns 1 if the strings
+ * can be considered identical, otherwise return 0.
+ * @s1: string to compare to
+ * @s2: string with wild character
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
-char _myStrlen(char *p)
+int wildcmp(char *s1, char *s2)
 {
-	if (!*p)
-		return (0);
-	return (1 + _myStrlen(p + 1));
-}
-/**
- * p1 - string iterator
- * @s: string paramsss
- * @l: length of string param
- * Return: returns string length
- */
-int p1(char *s, int l)
-{
-	if (l < 1)
+	if (*s1 == '\0' && *s2 == '\0')
 		return (1);
-	if (*s == *(s + l))
-		return (p1(s + 1, l - 2));
-	return (0);
-}
-/**
- * is_palindrome - checks if a string is palindrome
- * @s: string to be checked
- * Return: 1 or 0 if palindrome or not palindrome respectively
- */
-int is_palindrome(char *s)
-{
-	int len;
 
-	len = _myStrlen(s);
-	return (p1(s, len - 1));
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1));
+
+	if (*s2 == '*')
+	{
+		if (*s2 == '*' && *(s2 + 1) != '\0' && *s1 == '\0')
+			return (0);
+		if (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2))
+			return (1);
+	}
+
+	return (0);
 }
